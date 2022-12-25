@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.activities.MainActivity">
+
+    <TextView
+        android:id="@+id/tvWord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/chewy"
+        android:text="_ _ _ _ _ _ _"
+        android:textColor="#000000"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvLives"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="65dp"
+        android:fontFamily="@font/chewy"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="vidas" />
+
+    <ImageView
+        android:id="@+id/ivHeart"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="62dp"
+        app:layout_constraintStart_toEndOf="@+id/tvLives"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/heart" />
+
+    <TextView
+        android:id="@+id/tvCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/chewy"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Categoria" />
+
+    <TableLayout
+        android:layout_width="304dp"
+        android:layout_height="295dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvWord">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/btnA"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#900C3F"
+                android:onClick="keyPressed"
+                android:text="A" />
+
+            <Button
+                android:id="@+id/btnB"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#900C3F"
+                android:onClick="keyPressed"
+                android:text="B" />
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#900C3F"
+                android:onClick="keyPressed"
+                android:text="C" />
+
+            <Button
+                android:id="@+id/button5"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#900C3F"
+                android:onClick="keyPressed"
+                android:text="D" />
+
+            <Button
+                android:id="@+id/button6"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#900C3F"
+                android:onClick="keyPressed"
+                android:text="E" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/button7"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#900C3F"
+                android:onClick="keyPressed"
+                android:text="F" />
+
+            <Button
+                android:id="@+id/button8"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#900C3F"
+                android:onClick="keyPressed"
+                android:text="G" />
+
+            <Button
+                android:id="@+id/button9"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#900C3F"
+                android:onClick="keyPressed"
+                android:text="H" />
+
+            <Button
+                android:id="@+id/button10"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#900C3F"
+                android:onClick="keyPressed"
+                android:text="I" />
+
+            <Button
+                android:id="@+id/button11"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#900C3F"
+                android:onClick="keyPressed"
+                android:text="J" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/button12"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#900C3F"
+                android:onClick="keyPressed"
+                android:text="K" />
+
+            <Button
+                android:id="@+id/button13"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#900C3F"
+                android:onClick="keyPressed"
+                android:text="L" />
+
+            <Button
+                android:id="@+id/button14"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#900C3F"
+                android:onClick="keyPressed"
+                android:text="M" />
+
+            <Button
+                android:id="@+id/button15"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#900C3F"
+                android:onClick="keyPressed"
+                android:text="N" />
+
+            <Button
+                android:id="@+id/button16"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#900C3F"
+                android:onClick="keyPressed"
+                android:text="Ñ" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/button17"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#900C3F"
+                android:onClick="keyPressed"
+                android:text="O" />
+
+            <Button
+                android:id="@+id/button18"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#900C3F"
+                android:onClick="keyPressed"
+                android:text="P" />
+
+            <Button
+                android:id="@+id/button19"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#900C3F"
+                android:onClick="keyPressed"
+                android:text="Q" />
+
+            <Button
+                android:id="@+id/button20"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#900C3F"
+                android:onClick="keyPressed"
+                android:text="R" />
+
+            <Button
+                android:id="@+id/button21"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#900C3F"
+                android:onClick="keyPressed"
+                android:text="S" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/button22"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#900C3F"
+                android:onClick="keyPressed"
+                android:text="T" />
+
+            <Button
+                android:id="@+id/button23"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#900C3F"
+                android:onClick="keyPressed"
+                android:text="U" />
+
+            <Button
+                android:id="@+id/button24"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#900C3F"
+                android:onClick="keyPressed"
+                android:text="V" />
+
+            <Button
+                android:id="@+id/button25"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#900C3F"
+                android:onClick="keyPressed"
+                android:text="W" />
+
+            <Button
+                android:id="@+id/button26"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#900C3F"
+                android:onClick="keyPressed"
+                android:text="X" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="178dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="90dp"
+            android:layout_marginEnd="90dp"
+            >
+
+            <Button
+                android:id="@+id/button27"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#900C3F"
+                android:onClick="keyPressed"
+                android:text="Y" />
+
+            <Button
+                android:id="@+id/button28"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#900C3F"
+                android:onClick="keyPressed"
+                android:text="Z" />
+
+        </TableRow>
+
+    </TableLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
