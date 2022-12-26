@@ -58,6 +58,9 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 override fun onFailure(call: Call<Word>, t: Throwable) {
+                    binding.pbConexion.visibility = View.GONE
+                    binding.ivError.visibility = View.VISIBLE
+                    binding.btnReload.visibility = View.VISIBLE
                     Toast.makeText(this@MainActivity, "ERROR DE CONEXION ${t.message}", Toast.LENGTH_SHORT).show()
                 }
 
@@ -259,6 +262,16 @@ class MainActivity : AppCompatActivity() {
             btnZ.setBackgroundColor(Color.parseColor("#129BF9"))
 
         }
+    }
+
+    fun reloadConnection(view: View) {
+        binding.ivError.visibility = View.GONE
+        view.visibility = View.GONE
+
+        binding.pbConexion.visibility = View.VISIBLE
+
+        tryConnection()
+
     }
 
 }

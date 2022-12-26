@@ -16,6 +16,34 @@
         app:layout_constraintTop_toTopOf="parent"
         />
 
+    <ImageView
+        android:id="@+id/ivError"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/errorimage"
+        android:visibility="invisible"
+        />
+
+    <Button
+        android:id="@+id/btnReload"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#303030"
+        android:fontFamily="@font/chewy"
+        android:gravity="center_horizontal"
+        android:onClick="reloadConnection"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:text="Reconectar"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@+id/ivError" />
+
     <TextView
         android:id="@+id/tvWord"
         android:layout_width="wrap_content"
