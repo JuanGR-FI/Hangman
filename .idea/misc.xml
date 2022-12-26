@@ -3,8 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Juan/Desktop/CU/2023-1/ComputoMovil/Hangman/app/src/main/res/drawable/bg_iv.xml" value="0.2" />
+        <entry key="..\:/Users/Juan/Desktop/CU/2023-1/ComputoMovil/Hangman/app/src/main/res/drawable/bg_linear_layout.xml" value="0.183" />
+        <entry key="..\:/Users/Juan/Desktop/CU/2023-1/ComputoMovil/Hangman/app/src/main/res/drawable/bg_lose_iv.xml" value="0.183" />
         <entry key="..\:/Users/Juan/Desktop/CU/2023-1/ComputoMovil/Hangman/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2495" />
         <entry key="..\:/Users/Juan/Desktop/CU/2023-1/ComputoMovil/Hangman/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/Juan/Desktop/CU/2023-1/ComputoMovil/Hangman/app/src/main/res/layout/activity_splash.xml" value="0.13333333333333333" />
+        <entry key="..\:/Users/Juan/Desktop/CU/2023-1/ComputoMovil/Hangman/app/src/main/res/layout/dialog_lose_view.xml" value="0.17447916666666666" />
+        <entry key="..\:/Users/Juan/Desktop/CU/2023-1/ComputoMovil/Hangman/app/src/main/res/layout/dialog_win_view.xml" value="0.264" />
       </map>
     </option>
   </component>

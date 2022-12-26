@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.example.hangman.R
 import com.example.hangman.databinding.ActivityMainBinding
 import com.example.hangman.model.HangManApi
@@ -34,7 +35,11 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(binding.root)
 
+        tryConnection()
 
+    }
+
+    fun tryConnection(){
         CoroutineScope(Dispatchers.IO).launch {
             val call = Constants.getRetrofit().create(HangManApi::class.java).getWord()
             call.enqueue(object: Callback<Word> {
@@ -45,7 +50,10 @@ class MainActivity : AppCompatActivity() {
                     palabra = response.body()!!.word.toString().lowercase()
                     categoria = response.body()!!.category.toString()
 
+                    binding.pbConexion.visibility = View.GONE
+
                     inicializeGame()
+                    showUI()
 
                 }
 
@@ -55,7 +63,6 @@ class MainActivity : AppCompatActivity() {
 
             })
         }
-
     }
 
     override fun onStop() {
@@ -72,13 +79,18 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this@MainActivity, "Letra elegida anteriormente", Toast.LENGTH_SHORT).show()
 
         }else{
-            btn.setBackgroundColor(Color.parseColor("#151515"))
+
             misLetras += l
 
             var palabraPantalla = ""
 
-            if(l !in palabra) //Error
+            if(l !in palabra){//Error
                 vidas--
+                btn.setBackgroundColor(Color.parseColor("#F91212"))
+            }else{
+                btn.setBackgroundColor(Color.parseColor("#13C61E"))
+            }
+
 
             fallas = 0
             for(letra in palabra){
@@ -96,6 +108,7 @@ class MainActivity : AppCompatActivity() {
 
             if (fallas == 0){
                 Toast.makeText(this@MainActivity, "Ganaste!!", Toast.LENGTH_SHORT).show()
+                openWinDialog()
                 youWinSound()
             }else{
                 if(l in palabra)
@@ -104,6 +117,7 @@ class MainActivity : AppCompatActivity() {
 
             if(vidas == 0){ //Seguimos jugando y actualizamos la palabra
                 Toast.makeText(this@MainActivity, "Perdiste :(", Toast.LENGTH_SHORT).show()
+                openLoseDialog()
                 youLoseSound()
             }else{
                 if(l !in palabra)
@@ -116,6 +130,8 @@ class MainActivity : AppCompatActivity() {
 
     fun inicializeGame(){
         var palabraPantalla = ""
+        misLetras = ""
+        vidas = 6
         binding.tvLives.text = vidas.toString()
         binding.tvCategory.text = categoria
 
@@ -124,6 +140,8 @@ class MainActivity : AppCompatActivity() {
             palabraPantalla += ' '
         }
         binding.tvWord.text = palabraPantalla
+
+        inicializeButtons()
 
     }
 
@@ -149,14 +167,98 @@ class MainActivity : AppCompatActivity() {
 
     fun keyPressed(view: View) {
         val button = view as Button
-        /*if(binding.button2.id){
-            Toast.makeText(this@MainActivity, "Se oprimio la tecla A", Toast.LENGTH_SHORT).show()
-        }else if(view.id.equals("button3")){
-            Toast.makeText(this@MainActivity, "Se oprimio la tecla B", Toast.LENGTH_SHORT).show()
-        }*/
-        //Toast.makeText(this@MainActivity, "Se oprimio la tecla ${button.text}", Toast.LENGTH_SHORT).show()
-        verifyLetter(button.text.toString(), button)
 
+        verifyLetter(button.text.toString(), button)
+    }
+
+    fun openWinDialog(){
+        val view = View.inflate(this@MainActivity, R.layout.dialog_win_view, null)
+
+        val builder = AlertDialog.Builder(this@MainActivity)
+        builder.setView(view)
+
+        val dialog = builder.create()
+        dialog.show()
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+        dialog.setCancelable(false)
+
+        val btn = view.findViewById<Button>(R.id.btn_confirm)
+        btn.setOnClickListener {
+            hideUI()
+            binding.pbConexion.visibility = View.VISIBLE
+            tryConnection()
+            dialog.dismiss()
+        }
+
+    }
+
+    fun openLoseDialog(){
+        val view = View.inflate(this@MainActivity, R.layout.dialog_lose_view, null)
+
+        val builder = AlertDialog.Builder(this@MainActivity)
+        builder.setView(view)
+
+        val dialog = builder.create()
+        dialog.show()
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+        dialog.setCancelable(false)
+
+        val btn = view.findViewById<Button>(R.id.btn_confirm2)
+        btn.setOnClickListener {
+            hideUI()
+            binding.pbConexion.visibility = View.VISIBLE
+            tryConnection()
+            dialog.dismiss()
+        }
+    }
+
+    fun showUI(){
+        binding.tvWord.visibility = View.VISIBLE
+        binding.tvCategory.visibility = View.VISIBLE
+        binding.tvLives.visibility = View.VISIBLE
+        binding.ivHeart.visibility = View.VISIBLE
+        binding.tlButtons.visibility = View.VISIBLE
+    }
+
+    fun hideUI(){
+        binding.tvWord.visibility = View.GONE
+        binding.tvCategory.visibility = View.GONE
+        binding.tvLives.visibility = View.GONE
+        binding.ivHeart.visibility = View.GONE
+        binding.tlButtons.visibility = View.GONE
+    }
+
+    fun inicializeButtons(){
+        with(binding){
+            btnA.setBackgroundColor(Color.parseColor("#129BF9"))
+            btnB.setBackgroundColor(Color.parseColor("#129BF9"))
+            btnC.setBackgroundColor(Color.parseColor("#129BF9"))
+            btnD.setBackgroundColor(Color.parseColor("#129BF9"))
+            btnE.setBackgroundColor(Color.parseColor("#129BF9"))
+            btnF.setBackgroundColor(Color.parseColor("#129BF9"))
+            btnG.setBackgroundColor(Color.parseColor("#129BF9"))
+            btnH.setBackgroundColor(Color.parseColor("#129BF9"))
+            btnI.setBackgroundColor(Color.parseColor("#129BF9"))
+            btnJ.setBackgroundColor(Color.parseColor("#129BF9"))
+            btnK.setBackgroundColor(Color.parseColor("#129BF9"))
+            btnL.setBackgroundColor(Color.parseColor("#129BF9"))
+            btnM.setBackgroundColor(Color.parseColor("#129BF9"))
+            btnN.setBackgroundColor(Color.parseColor("#129BF9"))
+            btnN2.setBackgroundColor(Color.parseColor("#129BF9"))
+            btnO.setBackgroundColor(Color.parseColor("#129BF9"))
+            btnP.setBackgroundColor(Color.parseColor("#129BF9"))
+            btnQ.setBackgroundColor(Color.parseColor("#129BF9"))
+            btnR.setBackgroundColor(Color.parseColor("#129BF9"))
+            btnS.setBackgroundColor(Color.parseColor("#129BF9"))
+            btnT.setBackgroundColor(Color.parseColor("#129BF9"))
+            btnU.setBackgroundColor(Color.parseColor("#129BF9"))
+            btnV.setBackgroundColor(Color.parseColor("#129BF9"))
+            btnW.setBackgroundColor(Color.parseColor("#129BF9"))
+            btnX.setBackgroundColor(Color.parseColor("#129BF9"))
+            btnY.setBackgroundColor(Color.parseColor("#129BF9"))
+            btnZ.setBackgroundColor(Color.parseColor("#129BF9"))
+
+        }
     }
 
 }
