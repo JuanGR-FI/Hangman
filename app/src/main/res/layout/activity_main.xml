@@ -13,20 +13,18 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/ivError"
         android:layout_width="200dp"
         android:layout_height="200dp"
+        android:src="@drawable/errorimage"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/errorimage"
-        android:visibility="invisible"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnReload"
@@ -38,7 +36,7 @@
         android:onClick="reloadConnection"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
-        android:text="Reconectar"
+        android:text="@string/reconnect"
         android:textColor="@color/white"
         android:textSize="30sp"
         android:visibility="invisible"
@@ -49,8 +47,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/chewy"
-        android:text="_ _ _ _ _ _ _"
-        android:textColor="#000000"
+        tools:text="_ _ _ _ _ _ _"
+        android:textColor="@color/black"
         android:textSize="40sp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -62,12 +60,12 @@
         android:id="@+id/tvLives"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
         android:layout_marginTop="65dp"
+        android:layout_marginEnd="5dp"
         android:fontFamily="@font/chewy"
         android:textSize="25sp"
         android:visibility="invisible"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ivHeart"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="vidas" />
 
@@ -75,10 +73,10 @@
         android:id="@+id/ivHeart"
         android:layout_width="38dp"
         android:layout_height="38dp"
-        android:layout_marginStart="5dp"
         android:layout_marginTop="62dp"
+        android:layout_marginEnd="10dp"
         android:visibility="invisible"
-        app:layout_constraintStart_toEndOf="@+id/tvLives"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/heart" />
 
@@ -115,41 +113,41 @@
                 android:id="@+id/btnA"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#129BF9"
+                android:backgroundTint="@color/btnColor"
                 android:onClick="keyPressed"
-                android:text="A" />
+                android:text="@string/letterA" />
 
             <Button
                 android:id="@+id/btnB"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#129BF9"
+                android:backgroundTint="@color/btnColor"
                 android:onClick="keyPressed"
-                android:text="B" />
+                android:text="@string/letterB" />
 
             <Button
                 android:id="@+id/btnC"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#129BF9"
+                android:backgroundTint="@color/btnColor"
                 android:onClick="keyPressed"
-                android:text="C" />
+                android:text="@string/letterC" />
 
             <Button
                 android:id="@+id/btnD"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#129BF9"
+                android:backgroundTint="@color/btnColor"
                 android:onClick="keyPressed"
-                android:text="D" />
+                android:text="@string/letterD" />
 
             <Button
                 android:id="@+id/btnE"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#129BF9"
+                android:backgroundTint="@color/btnColor"
                 android:onClick="keyPressed"
-                android:text="E" />
+                android:text="@string/letterE" />
 
         </TableRow>
 
@@ -161,41 +159,41 @@
                 android:id="@+id/btnF"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#129BF9"
+                android:backgroundTint="@color/btnColor"
                 android:onClick="keyPressed"
-                android:text="F" />
+                android:text="@string/letterF" />
 
             <Button
                 android:id="@+id/btnG"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#129BF9"
+                android:backgroundTint="@color/btnColor"
                 android:onClick="keyPressed"
-                android:text="G" />
+                android:text="@string/letterG" />
 
             <Button
                 android:id="@+id/btnH"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#129BF9"
+                android:backgroundTint="@color/btnColor"
                 android:onClick="keyPressed"
-                android:text="H" />
+                android:text="@string/letterH" />
 
             <Button
                 android:id="@+id/btnI"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#129BF9"
+                android:backgroundTint="@color/btnColor"
                 android:onClick="keyPressed"
-                android:text="I" />
+                android:text="@string/letterI" />
 
             <Button
                 android:id="@+id/btnJ"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#129BF9"
+                android:backgroundTint="@color/btnColor"
                 android:onClick="keyPressed"
-                android:text="J" />
+                android:text="@string/letterJ" />
 
         </TableRow>
 
@@ -207,41 +205,41 @@
                 android:id="@+id/btnK"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#129BF9"
+                android:backgroundTint="@color/btnColor"
                 android:onClick="keyPressed"
-                android:text="K" />
+                android:text="@string/letterK" />
 
             <Button
                 android:id="@+id/btnL"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#129BF9"
+                android:backgroundTint="@color/btnColor"
                 android:onClick="keyPressed"
-                android:text="L" />
+                android:text="@string/letterL" />
 
             <Button
                 android:id="@+id/btnM"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#129BF9"
+                android:backgroundTint="@color/btnColor"
                 android:onClick="keyPressed"
-                android:text="M" />
+                android:text="@string/letterM" />
 
             <Button
                 android:id="@+id/btnN"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#129BF9"
+                android:backgroundTint="@color/btnColor"
                 android:onClick="keyPressed"
-                android:text="N" />
+                android:text="@string/letterN" />
 
             <Button
                 android:id="@+id/btnN2"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#129BF9"
+                android:backgroundTint="@color/btnColor"
                 android:onClick="keyPressed"
-                android:text="Ñ" />
+                android:text="@string/letterN2" />
 
         </TableRow>
 
@@ -253,41 +251,41 @@
                 android:id="@+id/btnO"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#129BF9"
+                android:backgroundTint="@color/btnColor"
                 android:onClick="keyPressed"
-                android:text="O" />
+                android:text="@string/letterO" />
 
             <Button
                 android:id="@+id/btnP"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#129BF9"
+                android:backgroundTint="@color/btnColor"
                 android:onClick="keyPressed"
-                android:text="P" />
+                android:text="@string/letterP" />
 
             <Button
                 android:id="@+id/btnQ"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#129BF9"
+                android:backgroundTint="@color/btnColor"
                 android:onClick="keyPressed"
-                android:text="Q" />
+                android:text="@string/letterQ" />
 
             <Button
                 android:id="@+id/btnR"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#129BF9"
+                android:backgroundTint="@color/btnColor"
                 android:onClick="keyPressed"
-                android:text="R" />
+                android:text="@string/letterR" />
 
             <Button
                 android:id="@+id/btnS"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#129BF9"
+                android:backgroundTint="@color/btnColor"
                 android:onClick="keyPressed"
-                android:text="S" />
+                android:text="@string/letterS" />
 
         </TableRow>
 
@@ -299,41 +297,41 @@
                 android:id="@+id/btnT"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#129BF9"
+                android:backgroundTint="@color/btnColor"
                 android:onClick="keyPressed"
-                android:text="T" />
+                android:text="@string/letterT" />
 
             <Button
                 android:id="@+id/btnU"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#129BF9"
+                android:backgroundTint="@color/btnColor"
                 android:onClick="keyPressed"
-                android:text="U" />
+                android:text="@string/letterU" />
 
             <Button
                 android:id="@+id/btnV"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#129BF9"
+                android:backgroundTint="@color/btnColor"
                 android:onClick="keyPressed"
-                android:text="V" />
+                android:text="@string/letterV" />
 
             <Button
                 android:id="@+id/btnW"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#129BF9"
+                android:backgroundTint="@color/btnColor"
                 android:onClick="keyPressed"
-                android:text="W" />
+                android:text="@string/letterW" />
 
             <Button
                 android:id="@+id/btnX"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#129BF9"
+                android:backgroundTint="@color/btnColor"
                 android:onClick="keyPressed"
-                android:text="X" />
+                android:text="@string/letterX" />
 
         </TableRow>
 
@@ -347,20 +345,32 @@
                 android:id="@+id/btnY"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#129BF9"
+                android:backgroundTint="@color/btnColor"
                 android:onClick="keyPressed"
-                android:text="Y" />
+                android:text="@string/letterY" />
 
             <Button
                 android:id="@+id/btnZ"
                 android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#129BF9"
+                android:backgroundTint="@color/btnColor"
                 android:onClick="keyPressed"
-                android:text="Z" />
+                android:text="@string/letterZ" />
 
         </TableRow>
 
     </TableLayout>
+
+    <ImageView
+        android:id="@+id/ivSprite"
+        android:layout_width="210dp"
+        android:layout_height="257dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/tvWord"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCategory"
+        app:srcCompat="@drawable/hangman_sprite_uno" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

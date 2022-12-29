@@ -1,5 +1,6 @@
 package com.example.hangman.view.activities
 
+import android.content.Intent
 import android.graphics.Color
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +10,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import com.blogspot.atifsoftwares.animatoolib.Animatoo
 import com.example.hangman.R
 import com.example.hangman.databinding.ActivityMainBinding
 import com.example.hangman.model.HangManApi
@@ -20,6 +22,7 @@ import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import kotlin.concurrent.thread
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -39,7 +42,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun tryConnection(){
+    private fun tryConnection(){
         CoroutineScope(Dispatchers.IO).launch {
             val call = Constants.getRetrofit().create(HangManApi::class.java).getWord()
             call.enqueue(object: Callback<Word> {
@@ -61,7 +64,7 @@ class MainActivity : AppCompatActivity() {
                     binding.pbConexion.visibility = View.GONE
                     binding.ivError.visibility = View.VISIBLE
                     binding.btnReload.visibility = View.VISIBLE
-                    Toast.makeText(this@MainActivity, "ERROR DE CONEXION ${t.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@MainActivity, getString(R.string.connection_error, t.message), Toast.LENGTH_SHORT).show()
                 }
 
             })
@@ -79,7 +82,7 @@ class MainActivity : AppCompatActivity() {
         val l = letra.lowercase()
 
         if(l in misLetras){
-            Toast.makeText(this@MainActivity, "Letra elegida anteriormente", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@MainActivity, getString(R.string.repeated_letter), Toast.LENGTH_SHORT).show()
 
         }else{
 
@@ -89,9 +92,11 @@ class MainActivity : AppCompatActivity() {
 
             if(l !in palabra){//Error
                 vidas--
-                btn.setBackgroundColor(Color.parseColor("#F91212"))
+                //btn.setBackgroundColor(Color.parseColor("#F91212"))
+                btn.setBackgroundColor(getColor(R.color.red))
             }else{
-                btn.setBackgroundColor(Color.parseColor("#13C61E"))
+                //btn.setBackgroundColor(Color.parseColor("#13C61E"))
+                btn.setBackgroundColor(getColor(R.color.green))
             }
 
 
@@ -110,19 +115,25 @@ class MainActivity : AppCompatActivity() {
             binding.tvLives.text = vidas.toString()
 
             if (fallas == 0){
-                Toast.makeText(this@MainActivity, "Ganaste!!", Toast.LENGTH_SHORT).show()
+                //Toast.makeText(this@MainActivity, "Ganaste!!", Toast.LENGTH_SHORT).show()
                 openWinDialog()
                 youWinSound()
+
+
             }else{
                 if(l in palabra)
                     correctSound()
             }
 
             if(vidas == 0){ //Seguimos jugando y actualizamos la palabra
-                Toast.makeText(this@MainActivity, "Perdiste :(", Toast.LENGTH_SHORT).show()
-                openLoseDialog()
+                //Toast.makeText(this@MainActivity, "Perdiste :(", Toast.LENGTH_SHORT).show()
+                updateSprite()
                 youLoseSound()
+                openLoseDialog()
+
+
             }else{
+                updateSprite()
                 if(l !in palabra)
                     incorrectSound()
             }
@@ -145,7 +156,7 @@ class MainActivity : AppCompatActivity() {
         binding.tvWord.text = palabraPantalla
 
         inicializeButtons()
-
+        updateSprite()
     }
 
     fun correctSound(){
@@ -221,6 +232,7 @@ class MainActivity : AppCompatActivity() {
         binding.tvLives.visibility = View.VISIBLE
         binding.ivHeart.visibility = View.VISIBLE
         binding.tlButtons.visibility = View.VISIBLE
+        binding.ivSprite.visibility = View.VISIBLE
     }
 
     fun hideUI(){
@@ -229,37 +241,50 @@ class MainActivity : AppCompatActivity() {
         binding.tvLives.visibility = View.GONE
         binding.ivHeart.visibility = View.GONE
         binding.tlButtons.visibility = View.GONE
+        binding.ivSprite.visibility = View.GONE
+    }
+
+    fun updateSprite(){
+        when(vidas){
+            6 -> { binding.ivSprite.setImageResource(R.drawable.hangman_sprite_uno) }
+            5 -> { binding.ivSprite.setImageResource(R.drawable.hangman_sprite_dos) }
+            4 -> { binding.ivSprite.setImageResource(R.drawable.hangman_sprite_tres) }
+            3 -> { binding.ivSprite.setImageResource(R.drawable.hangman_sprite_cuatro) }
+            2 -> { binding.ivSprite.setImageResource(R.drawable.hangman_sprite_siete) }
+            1 -> { binding.ivSprite.setImageResource(R.drawable.hangman_sprite_cinco) }
+            0 -> { binding.ivSprite.setImageResource(R.drawable.hangman_sprite_seis ) }
+        }
     }
 
     fun inicializeButtons(){
         with(binding){
-            btnA.setBackgroundColor(Color.parseColor("#129BF9"))
-            btnB.setBackgroundColor(Color.parseColor("#129BF9"))
-            btnC.setBackgroundColor(Color.parseColor("#129BF9"))
-            btnD.setBackgroundColor(Color.parseColor("#129BF9"))
-            btnE.setBackgroundColor(Color.parseColor("#129BF9"))
-            btnF.setBackgroundColor(Color.parseColor("#129BF9"))
-            btnG.setBackgroundColor(Color.parseColor("#129BF9"))
-            btnH.setBackgroundColor(Color.parseColor("#129BF9"))
-            btnI.setBackgroundColor(Color.parseColor("#129BF9"))
-            btnJ.setBackgroundColor(Color.parseColor("#129BF9"))
-            btnK.setBackgroundColor(Color.parseColor("#129BF9"))
-            btnL.setBackgroundColor(Color.parseColor("#129BF9"))
-            btnM.setBackgroundColor(Color.parseColor("#129BF9"))
-            btnN.setBackgroundColor(Color.parseColor("#129BF9"))
-            btnN2.setBackgroundColor(Color.parseColor("#129BF9"))
-            btnO.setBackgroundColor(Color.parseColor("#129BF9"))
-            btnP.setBackgroundColor(Color.parseColor("#129BF9"))
-            btnQ.setBackgroundColor(Color.parseColor("#129BF9"))
-            btnR.setBackgroundColor(Color.parseColor("#129BF9"))
-            btnS.setBackgroundColor(Color.parseColor("#129BF9"))
-            btnT.setBackgroundColor(Color.parseColor("#129BF9"))
-            btnU.setBackgroundColor(Color.parseColor("#129BF9"))
-            btnV.setBackgroundColor(Color.parseColor("#129BF9"))
-            btnW.setBackgroundColor(Color.parseColor("#129BF9"))
-            btnX.setBackgroundColor(Color.parseColor("#129BF9"))
-            btnY.setBackgroundColor(Color.parseColor("#129BF9"))
-            btnZ.setBackgroundColor(Color.parseColor("#129BF9"))
+            btnA.setBackgroundColor(getColor(R.color.btnColor))
+            btnB.setBackgroundColor(getColor(R.color.btnColor))
+            btnC.setBackgroundColor(getColor(R.color.btnColor))
+            btnD.setBackgroundColor(getColor(R.color.btnColor))
+            btnE.setBackgroundColor(getColor(R.color.btnColor))
+            btnF.setBackgroundColor(getColor(R.color.btnColor))
+            btnG.setBackgroundColor(getColor(R.color.btnColor))
+            btnH.setBackgroundColor(getColor(R.color.btnColor))
+            btnI.setBackgroundColor(getColor(R.color.btnColor))
+            btnJ.setBackgroundColor(getColor(R.color.btnColor))
+            btnK.setBackgroundColor(getColor(R.color.btnColor))
+            btnL.setBackgroundColor(getColor(R.color.btnColor))
+            btnM.setBackgroundColor(getColor(R.color.btnColor))
+            btnN.setBackgroundColor(getColor(R.color.btnColor))
+            btnN2.setBackgroundColor(getColor(R.color.btnColor))
+            btnO.setBackgroundColor(getColor(R.color.btnColor))
+            btnP.setBackgroundColor(getColor(R.color.btnColor))
+            btnQ.setBackgroundColor(getColor(R.color.btnColor))
+            btnR.setBackgroundColor(getColor(R.color.btnColor))
+            btnS.setBackgroundColor(getColor(R.color.btnColor))
+            btnT.setBackgroundColor(getColor(R.color.btnColor))
+            btnU.setBackgroundColor(getColor(R.color.btnColor))
+            btnV.setBackgroundColor(getColor(R.color.btnColor))
+            btnW.setBackgroundColor(getColor(R.color.btnColor))
+            btnX.setBackgroundColor(getColor(R.color.btnColor))
+            btnY.setBackgroundColor(getColor(R.color.btnColor))
+            btnZ.setBackgroundColor(getColor(R.color.btnColor))
 
         }
     }

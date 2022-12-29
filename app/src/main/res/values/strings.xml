@@ -1,3 +1,35 @@
 <resources>
     <string name="app_name">Hangman</string>
+    <string name="version">Versión 1.0</string>
+    <string name="developer">©CervantesJuan</string>
+    <string name="reconnect">Reconectar</string>
+    <string name="repeated_letter">Letra elegida anteriormente</string>
+    <string name="connection_error">ERROR DE CONEXIÓN: %s</string>
+    <string name="letterA">A</string>
+    <string name="letterB">B</string>
+    <string name="letterC">C</string>
+    <string name="letterD">D</string>
+    <string name="letterE">E</string>
+    <string name="letterF">F</string>
+    <string name="letterG">G</string>
+    <string name="letterH">H</string>
+    <string name="letterI">I</string>
+    <string name="letterJ">J</string>
+    <string name="letterK">K</string>
+    <string name="letterL">L</string>
+    <string name="letterM">M</string>
+    <string name="letterN">N</string>
+    <string name="letterN2">Ñ</string>
+    <string name="letterO">O</string>
+    <string name="letterP">P</string>
+    <string name="letterQ">Q</string>
+    <string name="letterR">R</string>
+    <string name="letterS">S</string>
+    <string name="letterT">T</string>
+    <string name="letterU">U</string>
+    <string name="letterV">V</string>
+    <string name="letterW">W</string>
+    <string name="letterX">X</string>
+    <string name="letterY">Y</string>
+    <string name="letterZ">Z</string>
 </resources>
